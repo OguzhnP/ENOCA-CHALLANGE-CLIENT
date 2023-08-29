@@ -15,8 +15,4 @@ constructor(
 
 
 
-
-  getCarriers(){
-    this.httpService.get<any>("/carriers",(res)=>console.log(res))
-  }
 }

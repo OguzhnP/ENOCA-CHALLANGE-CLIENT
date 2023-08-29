@@ -1,1 +1,22 @@
-<p>carrier-configuration works!</p>
+<mat-drawer-container class="carrierconf-container">
+  <mat-drawer mode="side" opened class="carrierconf-left-container">
+    <mat-form-field>
+    <mat-label>Carrier Max Desi</mat-label>
+    <input matInput [(ngModel)]="carrierConfiguration.carrierMaxDesi" type="text" id="carrierMaxDesi" class="form-control" >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Carrier Min Desi </mat-label>
+    <input matInput [(ngModel)]="carrierConfiguration.carrierMinDesi" type="number" id="carrierMinDesi" class="form-control" >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Carrier Cost</mat-label>
+    <input matInput [(ngModel)]="carrierConfiguration.carrierCost" type="number" id="carrierCost" class="form-control" >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Carrier Id</mat-label>
+    <input matInput [(ngModel)]="carrierConfiguration.carrierId" type="number" id="carrierId" class="form-control" >
+  </mat-form-field>
+  <button mat-flat-button class="btn" color="primary" (click)="createCarrrierConfiguration()" >Configuration Ekle</button>
+  </mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>

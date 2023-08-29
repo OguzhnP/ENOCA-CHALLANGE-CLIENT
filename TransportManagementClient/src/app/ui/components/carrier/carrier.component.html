@@ -1,1 +1,21 @@
-<p>carrier works!</p>
+<mat-drawer-container class="carrier-container">
+  <mat-drawer mode="side" opened class="carrier-left-container">
+    <mat-form-field>
+    <mat-label>Select</mat-label>
+    <input matInput [(ngModel)]="carrier.carrierName" type="text" id="carrierName" class="form-control" >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Carrier Is Active</mat-label>
+    <mat-select [(ngModel)]="carrier.carrierIsActive">
+      <mat-option ng-value="true">true</mat-option>
+      <mat-option ng-value="false">false</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Carrier Plus Desi Cost</mat-label>
+    <input matInput [(ngModel)]="carrier.carrierPlusDesiCost" type="number" id="carrierPlusDesiCost" class="form-control" >
+  </mat-form-field>
+  <button mat-flat-button class="btn" color="primary" (click)="createCarrier()" >Carrier Ekle</button>
+  </mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>

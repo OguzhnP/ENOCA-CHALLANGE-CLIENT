@@ -19,7 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UiModule,
   ],
   providers: [
-    {provide : HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi : true}
+    {provide : HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi : true},
+    {provide : "baseUrl", useValue:"https://localhost:7150/api",multi : true}
   ],
   bootstrap: [AppComponent]
 })

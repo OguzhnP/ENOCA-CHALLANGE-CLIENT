@@ -1,1 +1,11 @@
-<p>order works!</p>
+<mat-drawer-container class="order-container">
+  <mat-drawer mode="side" opened class="order-left-container">
+    <mat-form-field>
+    <mat-label>Order Desi</mat-label>
+    <input matInput [(ngModel)]="order.orderDesi" type="text" id="orderDesi" class="form-control" >
+  </mat-form-field>
+
+  <button mat-flat-button class="btn" color="primary" (click)="createOrder()" >Order Ekle</button>
+  </mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>

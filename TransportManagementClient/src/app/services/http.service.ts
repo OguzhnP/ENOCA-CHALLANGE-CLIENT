@@ -1,5 +1,6 @@
-import { HttpClient, HttpEvent } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
 
 @Injectable({
@@ -10,41 +11,49 @@ export class HttpService {
   api : string =environment.api;
 
   constructor(
-    private http : HttpClient
+    private http : HttpClient,
+    @Inject("baseUrl") private baseUrl :string
   ) { }
 
 
 
-  get<T>(api : string ,callBack : ( res : HttpEvent<T>)=> void,options : any = {}){
-    this.http.get<T>(this.api +api,options)
-      .subscribe({
-        next: (res) =>callBack(res )
-      });
+  getReq(url: any) {
+    return this.http.get<any>(this.baseUrlUpdate(url), {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': this.baseUrlUpdate(url),
+      }),
+    });
   }
 
-
-  post<T>(api : string , model : any,callBack : ( res : HttpEvent<T>)=> void,options : any = {}){
-    this.http.post<T>(this.api +api,model,options)
-      .subscribe({
-        next: (res) =>callBack(res )
-      });
+  postReq(url: any, data: any) {
+    return this.http.post<any>(this.baseUrlUpdate(url), data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': this.baseUrlUpdate(url),
+      }),
+    });
+  }
+  deleteReq(url: any, id: string) {
+    return this.http.post<any>(this.baseUrlUpdate(url), id, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': this.baseUrlUpdate(url),
+      }),
+    });
   }
 
-
-  put<T>(api : string , model : any,callBack : ( res : HttpEvent<T>)=> void,options : any = {}){
-    this.http.put<T>(this.api +api,model,options)
-      .subscribe({
-        next: (res) =>callBack(res )
-      });
+  putReq(url: any, data: any) {
+    return this.http.put<any>(this.baseUrlUpdate(url), data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': this.baseUrlUpdate(url),
+      }),
+    });
   }
 
-
-  delete<T>(api : string ,callBack : ( res : HttpEvent<T>)=> void,options : any = {}){
-    this.http.delete<T>(this.api +api,options)
-      .subscribe({
-        next: (res) =>callBack(res )
-      });
+  baseUrlUpdate(url: string): string {
+    return url.startsWith('/') ? this.baseUrl + url : url;
   }
-
 
 }
