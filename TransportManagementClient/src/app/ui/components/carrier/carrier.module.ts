@@ -8,21 +8,23 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 
 @NgModule({
   declarations: [
-    CarrierComponent
+    CarrierComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {path:"",component: CarrierComponent}
     ]),
-    MatSidenavModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,
-    FormsModule
+    MatSidenavModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,MatTableModule,
+    FormsModule,HttpClientModule
   ],
   exports:[CarrierComponent
   ]

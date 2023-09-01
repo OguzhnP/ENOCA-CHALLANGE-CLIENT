@@ -8,6 +8,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -19,8 +21,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([
       {path : "", component: OrderComponent}
     ]),
-    MatSidenavModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,
-    FormsModule
+    MatSidenavModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatTableModule,
+    FormsModule,HttpClientModule
   ],
   exports:[OrderComponent
   ]

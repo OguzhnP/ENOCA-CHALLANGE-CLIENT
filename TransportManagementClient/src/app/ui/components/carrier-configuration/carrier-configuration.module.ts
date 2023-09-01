@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -20,7 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
      RouterModule.forChild([
       {path:"",component: CarrierConfigurationComponent}
     ]),
-    MatSidenavModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,
+    MatSidenavModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatButtonModule,MatTableModule,
     FormsModule
   ],
   exports:[
