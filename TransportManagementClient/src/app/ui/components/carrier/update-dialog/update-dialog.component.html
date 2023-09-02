@@ -19,8 +19,8 @@
         <input matInput  type="text" id="uCarrierName" class="form-control" formControlName="carrierName" >
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Carrier Is Active</mat-label>
-        <mat-select formControlName="carrierIsActive" class="form-control" id="uCarrierIsActive">
+        <mat-label>{{data.element.carrierIsActive}}</mat-label>
+        <mat-select mat-select   formControlName="carrierIsActive" class="form-control" id="uCarrierIsActive">
           <mat-option value="false">False</mat-option>
           <mat-option value="true">True</mat-option>
         </mat-select>
