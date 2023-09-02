@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
-import { List_Carrier } from '../models/list-carrier';
+import { List_Carrier } from '../models/carrier/list-carrier';
 
 @Injectable({
   providedIn: 'root'

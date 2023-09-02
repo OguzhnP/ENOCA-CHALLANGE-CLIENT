@@ -1,6 +1,6 @@
 
 export class List_Carrier {
-  id: any;
+  id: string;
   carrierName: string;
   carrierIsActive: boolean;
   carrierPlusDesiCost: number;

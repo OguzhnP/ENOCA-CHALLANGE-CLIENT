@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Create_Carrier } from 'src/app/models/create-carrier';
-import { List_Carrier } from 'src/app/models/list-carrier';
+import { Create_Carrier } from 'src/app/models/carrier/create-carrier';
+import { List_Carrier } from 'src/app/models/carrier/list-carrier';
 import { AlertifyService, MessageType } from 'src/app/services/alertify.service';
 import { HttpService } from 'src/app/services/http.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { CarrierService } from 'src/app/services/carrier.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 declare var $: any;
 @Component({
   selector: 'app-carrier',
@@ -19,7 +21,8 @@ export class CarrierComponent implements OnInit {
   constructor(
     private httpService : HttpService,
     private carrierService : CarrierService,
-    private alertify : AlertifyService
+    private alertify : AlertifyService,
+    private dialog: MatDialog
   ){}
   displayedColumns: string[] = ['id', 'carrierName', 'carrierIsActive', 'carrierPlusDesiCost', 'edit', 'remove'];
   dataSource : MatTableDataSource<List_Carrier> =null;
@@ -55,6 +58,15 @@ export class CarrierComponent implements OnInit {
     this.httpService.deleteReq("/carriers",id).subscribe({
       next :()=>{
         this.getCarrriers();
+      }
+    });
+  }
+
+
+  openDialog(element:any){
+   this.dialog.open(UpdateDialogComponent,{
+      data:{
+        element:element,
       }
     });
   }

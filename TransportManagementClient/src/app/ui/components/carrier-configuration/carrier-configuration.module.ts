@@ -9,12 +9,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 
 
 
 @NgModule({
   declarations: [
-    CarrierConfigurationComponent
+    CarrierConfigurationComponent,
+    UpdateDialogComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule
   ],
   exports:[
-    CarrierConfigurationComponent
+    CarrierConfigurationComponent,
+    UpdateDialogComponent
   ]
 })
 export class CarrierConfigurationModule { }

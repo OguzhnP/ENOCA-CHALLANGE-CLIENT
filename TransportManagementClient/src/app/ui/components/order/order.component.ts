@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Create_Carrier } from 'src/app/models/create-carrier';
-import { Create_Order } from 'src/app/models/create-order';
-import { List_Order } from 'src/app/models/list_order';
+import { Create_Carrier } from 'src/app/models/carrier/create-carrier';
+import { Create_Order } from 'src/app/models/order/create-order';
+import { List_Order } from 'src/app/models/order/list_order';
 import { AlertifyService, MessageType } from 'src/app/services/alertify.service';
 import { HttpService } from 'src/app/services/http.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -19,7 +19,7 @@ export class OrderComponent implements OnInit{
     private orderService : OrderService,
     private alertify : AlertifyService
   ){}
-  displayedColumns: string[] = ['id','carrierId', 'carrierName', 'orderCarrierCost','orderDate','orderDesi', 'edit', 'remove'];
+  displayedColumns: string[] = ['id','carrierId', 'carrierName', 'orderCarrierCost','orderDate','orderDesi', 'remove'];
   dataSource : MatTableDataSource<List_Order> =null;
 
 

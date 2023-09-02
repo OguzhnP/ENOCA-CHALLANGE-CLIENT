@@ -1,3 +1,3 @@
 export class Create_Order{
-  orderDesi : number =0;
+  orderDesi : number;
 }

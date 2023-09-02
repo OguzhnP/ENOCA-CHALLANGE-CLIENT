@@ -23,7 +23,7 @@ export class HttpService {
   }
 
   putReq<T>(url : any, id : any , body : any): Observable<T>{
-    return this.http.patch<T>(`${this.baseUrlUpdate(url)}/${id}`,body);
+    return this.http.put<T>(`${this.baseUrlUpdate(url)}/${id}`,body);
   }
   deleteReq<T>(url : any,id : any): Observable<T>{
     return this.http.delete<T>(`${this.baseUrlUpdate(url)}/${id}`);

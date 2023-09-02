@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Create_Carrier_Conf } from 'src/app/models/create-carrier-configuration';
+import { Create_Carrier_Conf } from 'src/app/models/carrier-configuration/create-carrier-configuration';
 import { HttpService } from 'src/app/services/http.service';
 import { AlertifyService, MessageType } from 'src/app/services/alertify.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { List_CarrierConf } from 'src/app/models/list-carrier-configuration';
+import { List_CarrierConf } from 'src/app/models/carrier-configuration/list-carrier-configuration';
 import { CarrierConfigurationService } from '../../../services/carrier-configuration.service';
 
 @Component({

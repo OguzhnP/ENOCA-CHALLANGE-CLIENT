@@ -1,0 +1,38 @@
+<mat-dialog-content class="mat-typography">
+  <div style="display: flex; justify-content: space-between; " >
+    <div style=" display: flex; align-items: center; ">
+      <h3 style="margin: 0; margin-left: 30px; font-weight: bold;" >
+          Güncelle
+      </h3>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+
+    <form class="example-form"  [formGroup]="form">
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput  type="text"   id="id" class="form-control"formControlName="id" >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Carrier Name</mat-label>
+        <input matInput  type="text" id="uCarrierName" class="form-control" formControlName="carrierName" >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Carrier Is Active</mat-label>
+        <mat-select formControlName="carrierIsActive" class="form-control" id="uCarrierIsActive">
+          <mat-option ng-value="false">False</mat-option>
+          <mat-option ng-value="true">True</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Carrier Plus Desi Cost</mat-label>
+        <input matInput type="number" id="uCarrierPlusDesiCost" class="form-control" formControlName="carrierPlusDesiCost" >
+      </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Kapat</button>
+   <button mat-button color="primary" [disabled]="!form.valid"  (click)="onSubmit()" >Güncelle</button>
+</mat-dialog-actions>
