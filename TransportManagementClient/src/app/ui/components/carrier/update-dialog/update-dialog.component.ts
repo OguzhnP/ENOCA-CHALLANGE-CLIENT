@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Update_Carrier } from 'src/app/models/carrier/update-carrier';
 import { HttpService } from 'src/app/services/http.service';
 import { AlertifyService, MessageType } from '../../../../services/alertify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-dialog',
@@ -31,6 +32,7 @@ export class UpdateDialogComponent {
     private dialogRef: MatDialogRef<UpdateDialogComponent>,
     private http : HttpService,
     private alertify : AlertifyService,
+    private router: Router
   ){
 
     this.form.patchValue({
@@ -44,13 +46,26 @@ export class UpdateDialogComponent {
 
   close(){
     this.dialogRef.close();
+    window.location.reload();
    }
 
    onSubmit(){
+    const formValue = this.form.value;
+
+    const carrierIsActiveString = formValue.carrierIsActive;
+
+    let carrierIsActive: boolean;
+
+    if (carrierIsActiveString === 'true') {
+      carrierIsActive = true;
+    } else if (carrierIsActiveString === 'false') {
+      carrierIsActive = false;
+    }
+
     const request={
       id:this.form.get("id")?.value.toString(),
       carrierName:this.form.get("carrierName")?.value,
-      carrierIsActive:this.form.get("carrierIsActive")?.value,
+      carrierIsActive:carrierIsActive ,
       carrierPlusDesiCost:this.form.get("carrierPlusDesiCost")?.value,
     };
 
