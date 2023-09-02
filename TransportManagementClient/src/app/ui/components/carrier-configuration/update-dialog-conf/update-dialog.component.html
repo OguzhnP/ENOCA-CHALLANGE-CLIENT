@@ -1,0 +1,44 @@
+<mat-dialog-content class="mat-typography">
+  <div style="display: flex; justify-content: space-between; " >
+    <div style=" display: flex; align-items: center; ">
+      <h3 style="margin: 0; margin-left: 30px; font-weight: bold;" >
+          Güncelle
+      </h3>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+
+    <form class="example-form"  [formGroup]="form">
+      <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput  type="text"   id="id" class="form-control"formControlName="id" >
+      </mat-form-field>
+    
+
+      <mat-form-field>
+        <mat-label>Carrier Min Desi</mat-label>
+        <input matInput type="number" id="uCarrierMinDesi" class="form-control" formControlName="carrierMinDesi" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Carrier Max Desi</mat-label>
+        <input matInput type="number" id="uCarrierMaxDesi" class="form-control" formControlName="carrierMaxDesi" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Carrier Cost</mat-label>
+        <input matInput type="number" id="uCarrierCost" class="form-control" formControlName="carrierCost" >
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Carrier Id</mat-label>
+        <input matInput type="number" id="uCarrierId" class="form-control" formControlName="carrierId" >
+      </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Kapat</button>
+   <button mat-button color="primary" [disabled]="!form.valid"  (click)="onSubmit()" >Güncelle</button>
+</mat-dialog-actions>

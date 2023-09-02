@@ -5,6 +5,8 @@ import { AlertifyService, MessageType } from 'src/app/services/alertify.service'
 import { MatTableDataSource } from '@angular/material/table';
 import { List_CarrierConf } from 'src/app/models/carrier-configuration/list-carrier-configuration';
 import { CarrierConfigurationService } from '../../../services/carrier-configuration.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateDialogComponent } from './update-dialog-conf/update-dialog.component';
 
 @Component({
   selector: 'app-carrier-configuration',
@@ -18,7 +20,9 @@ export class CarrierConfigurationComponent implements OnInit {
   constructor(
      private httpService : HttpService,
      private carrierConfService : CarrierConfigurationService,
-    private alertify : AlertifyService){
+    private alertify : AlertifyService,
+    private dialog: MatDialog
+    ){
 
   }
 
@@ -54,10 +58,19 @@ export class CarrierConfigurationComponent implements OnInit {
   }
 
   deleteCarrierConf(id: any){
-    this.httpService.deleteReq("/orders",id).subscribe({
+    this.httpService.deleteReq("/carrierconfigurations",id).subscribe({
       next :()=>{
         this.getCarrierConf();
       }
     });
   }
-}
+
+  openDialog(element:any){
+    this.dialog.open(UpdateDialogComponent,{
+       data:{
+         element:element,
+       }
+     });
+   }
+ }
+

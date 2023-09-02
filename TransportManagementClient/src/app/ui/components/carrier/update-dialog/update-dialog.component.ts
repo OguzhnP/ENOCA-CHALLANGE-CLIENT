@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class UpdateDialogComponent {
   id : string;
   carrierName: any;
-  carrierIsActive: boolean;
+  carrierIsActive: any;
   carrierPlusDesiCost: any;
 
 
@@ -31,8 +31,7 @@ export class UpdateDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data:any,
     private dialogRef: MatDialogRef<UpdateDialogComponent>,
     private http : HttpService,
-    private alertify : AlertifyService,
-    private router: Router
+    private alertify : AlertifyService, 
   ){
 
     this.form.patchValue({
